@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package tcprpcpb;
+
+enum Type {
+  CALL = 0;
+  MSG = 1;
+}
+
+message Message {
+  Type type = 1;
+  int64 id = 2;
+  string func = 3;
+  string error = 4;
+  bytes body = 5;
+}
