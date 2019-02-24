@@ -10,8 +10,8 @@ import (
 	"sync"
 
 	"github.com/gogo/protobuf/proto"
-	"github.com/qiwitech/tcprpc/tcprpcpb"
 	"github.com/pkg/errors"
+	"github.com/qiwitech/tcprpc/tcprpcpb"
 	"golang.org/x/net/trace"
 )
 
@@ -271,7 +271,7 @@ func (c *Client) netWriter() {
 
 		conn, err := c.getConn()
 		c.mu.Unlock()
-		ev.Printf("serve call: %v, conn: %v, err %v", id, conn, err)
+		ev.Printf("serve call: %v, conn: %v, err %v", id, conn != nil, err)
 		if err != nil {
 			ev.Errorf("getConn: %v", err)
 			call.errc <- err
